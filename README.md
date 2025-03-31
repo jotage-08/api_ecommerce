@@ -1,7 +1,8 @@
-E-Commerce API
-API para um sistema de E-Commerce, desenvolvida em Python com Flask.
+## API E-Commerce
+Este projeto é uma API de E-Commerce simples desenvolvida com Python e Flask, utilizando SQLite como banco de dados. A API é projetada para gerenciar produtos e realizar operações básicas de um sistema de e-commerce.
 
 ## Tecnologias Utilizadas
+
 Python
 
 Flask
@@ -15,55 +16,86 @@ Swagger (para documentação)
 Postman (para testes de API)
 
 ## Como Executar Localmente
+
 Siga as etapas abaixo utilizando o terminal PowerShell. Certifique-se de que o Python 3.7 ou superior está instalado no seu sistema.
 
-Clone o repositóri no PowerShell, execute:
-
+Clone o repositório no PowerShell:
 
 git clone https://github.com/jotage-08/api_ecommerce.git
 
-Depois troque de disco:
+Entre no diretório do projeto:
 
 cd api_ecommerce
 
-Ainda no PowerShell, crie um ambiente virtual para isolar as dependências do projeto:
+Crie um ambiente virtual para isolar as dependências do projeto:
 
 python -m venv venv
 
-Ative o ambiente virtual com o seguinte comando:
+
+No Windows (PowerShell):
 
 .\venv\Scripts\Activate
 
+No Linux/Mac:
+
+source venv/bin/activate
+
 Você saberá que o ambiente foi ativado ao ver (venv) antes do caminho no terminal.
 
-Instale as dependências: Com o ambiente virtual ativo, instale as dependências listadas no arquivo requirements.txt:
+Instale as dependências listadas no arquivo requirements.txt:
 
 pip install -r requirements.txt
 
 Inicie o servidor da API executando:
 
 python application.py
-
 O servidor será iniciado, e o terminal mostrará algo como:
 
 Running on http://127.0.0.1:5000/.
+Pronto! Sua API E-Commerce está rodando localmente.
 
-E pronto, está rodando sua API E-Commerce
+## Estrutura do Projeto
 
-Estrutura do Projeto:
+A estrutura do projeto é a seguinte:
 
+```
 E-Commerce/
 ├── application.py      # Código principal da API
-├── requirements.txt     # Dependências
-├── swagger.yaml         # Documentação OpenAPI
-├── .gitignore           # Arquivos ignorados pelo Git
+├── requirements.txt    # Dependências
+├── swagger.yaml        # Documentação OpenAPI
+├── .gitignore          # Arquivos ignorados pelo Git
 └── instance/
-    └── ecomerce.db      # Banco de dados SQLite 
-    
-## Deploy na AWS
+    └── ecommerce.db    # Banco de dados SQLite
+```
 
-Este projeto está configurado para deployment no AWS Elastic Beanstalk. Atualmente, o serviço está desativado para evitar custos. Se desejar ativá-lo, edite o arquivo .elasticbeanstalk/config.yml conforme necessário e faça o deploy manualmente. Certifique-se de revisar os custos envolvidos antes de ativar o serviço.
+## Como Fazer o Deploy na AWS Elastic Beanstalk
+
+Este projeto está configurado para deployment no AWS Elastic Beanstalk. Atualmente, o serviço está desativado para evitar custos.
+
+Se desejar ativá-lo, siga as etapas abaixo:
+
+Instale a CLI do Elastic Beanstalk, caso ainda não tenha:
+
+pip install awsebcli --upgrade
+
+Inicialize o Elastic Beanstalk no projeto (se ainda não fez):
+
+eb init
+Faça o deploy manualmente:
+
+eb deploy
+Para monitorar o status do ambiente:
+
+eb status
+Atenção: Certifique-se de revisar os custos envolvidos antes de ativar o serviço.
+
+## Variáveis de Ambiente
+
+Se sua aplicação precisar de variáveis de ambiente, você pode criar um arquivo .env com o conteúdo necessário. Por exemplo:
+
+SECRET_KEY=sua_chave_secreta
+DATABASE_URL=sqlite:///instance/ecommerce.db
 
 ## Contribuição
 
-Contribuições são bem-vindas! Abra uma issue ou envie um pull request.
+Contribuições são bem-vindas! Se você quiser ajudar a melhorar o projeto, abra uma issue ou envie um pull request.
